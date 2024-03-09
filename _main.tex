@@ -1,0 +1,687 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={prova},
+  pdfauthor={John Doe},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{prova}
+\author{John Doe}
+\date{2024-03-09}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{about}{%
+\chapter{About}\label{about}}
+
+This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation \(a^2 + b^2 = c^2\).
+
+\hypertarget{usage}{%
+\section{Usage}\label{usage}}
+
+Each \textbf{bookdown} chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter \emph{must} start with a first-level heading: \texttt{\#\ A\ good\ chapter}, and can contain one (and only one) first-level heading.
+
+Use second-level and higher headings within chapters like: \texttt{\#\#\ A\ short\ section} or \texttt{\#\#\#\ An\ even\ shorter\ section}.
+
+The \texttt{index.Rmd} file is required, and is also your first book chapter. It will be the homepage when you render the book.
+
+\hypertarget{render-book}{%
+\section{Render book}\label{render-book}}
+
+You can render the HTML version of this example book without changing anything:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the \textbf{Build} pane in the RStudio IDE, and
+\item
+  Click on \textbf{Build Book}, then select your output format, or select ``All formats'' if you'd like to use multiple formats from the same book source files.
+\end{enumerate}
+
+Or build the book from the R console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{render\_book}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+To render this example to PDF as a \texttt{bookdown::pdf\_book}, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
+
+\hypertarget{preview-book}{%
+\section{Preview book}\label{preview-book}}
+
+As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in ``Preview book'', or from the R console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{visualitzaciuxf3-i-depurat-de-dades}{%
+\chapter{Visualització i depurat de dades}\label{visualitzaciuxf3-i-depurat-de-dades}}
+
+Disposem de dos bases de dades, una sobre ecocardiogrames i altre sobre densitometries en esportistes. Anem a fer el preprocessat de dades en ambdues.
+
+\hypertarget{ecocardiograma}{%
+\section{Ecocardiograma}\label{ecocardiograma}}
+
+Carreguem les dades i les visualitzem.
+Passem les columnes Temporada, Secció, Equip i Prova a factor i canviem el nom de les altres variables per treballar-hi millor:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}}\NormalTok{ ecocardiograma}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{Temporada =} \FunctionTok{as.factor}\NormalTok{(Temporada),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Secció}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{as.factor}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Secció}\StringTok{\textasciigrave{}}\NormalTok{),}
+    \AttributeTok{Equip =} \FunctionTok{as.factor}\NormalTok{(Equip),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{as.factor}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}}\NormalTok{),}
+    \AttributeTok{Sexe =} \FunctionTok{as.factor}\NormalTok{(Sexe),}
+    \AttributeTok{Prova =} \FunctionTok{as.factor}\NormalTok{(Prova),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Any =}  \FunctionTok{year}\NormalTok{(ecocardiograma}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{    ) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}
+    \AttributeTok{Seccio =}\StringTok{\textasciigrave{}}\AttributeTok{Secció}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Id =} \StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Data\_eco =} \StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Diam\_ven\_esq\_diast =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. ventricle esq. Diast.}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Diam\_ven\_esq\_sist =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. ventricle esq. Sist.}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Gruix\_tabic =} \StringTok{\textasciigrave{}}\AttributeTok{Gruix tabic interventricular}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Gruix\_paret =} \StringTok{\textasciigrave{}}\AttributeTok{Gruix paret posterior V.E.}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Auricula\_esq =} \StringTok{\textasciigrave{}}\AttributeTok{Aurícula esq.}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Diam\_aorta =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. arrel aorta}\StringTok{\textasciigrave{}}\NormalTok{,}
+    
+    \AttributeTok{Diam\_ven\_esq\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. ventricle esq. Diast.(i)}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Diam\_ven\_esq\_sist\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. ventricle esq. Sist.(i)}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Gruix\_tabic\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Gruix tabic interventricul.(i)}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Gruix\_paret\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Gruix paret posterior V.E.(i)}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Auricula\_esq\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Aurícula esq.(i)}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Diam\_aorta\_i =} \StringTok{\textasciigrave{}}\AttributeTok{Diam. arrel aorta(i)}\StringTok{\textasciigrave{}}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Temporada, Naixament)) }
+\end{Highlighting}
+\end{Shaded}
+
+Eliminem aquelles files on totes les columnes de proves son NA's i no ens aporten informació.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(}\FunctionTok{rowSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(., }\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Seccio, Equip, Id, Sexe, Edat, Prova, Data\_eco, Any)))) }\SpecialCharTok{\textgreater{}=} \DecValTok{14}\NormalTok{ ) ) }
+\end{Highlighting}
+\end{Shaded}
+
+Ara comparem que no hi haguin proves repetides, és a dir, que per la mateixa persona i mateixa data tinguem dos valors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rep}\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id, Data\_eco) }\SpecialCharTok{\%\textgreater{}\%}  
+  \FunctionTok{tally}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(n}\SpecialCharTok{\textgreater{}}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{left\_join}\NormalTok{(dfpreeco, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"Id"}\NormalTok{, }\StringTok{"Data\_eco"}\NormalTok{)) }
+
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{distinct}\NormalTok{(Id, Data\_eco, }\AttributeTok{.keep\_all =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Hi han missings en columnes que poden no ser de veritat. És a dir, que la informació s'entrés en alguna altra fila. Concretament en les columnes Seccio, Equip i Edat. Anem a imputar els possibles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{fill}\NormalTok{(Seccio, }\AttributeTok{.direction =} \StringTok{"updown"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{fill}\NormalTok{(Equip, }\AttributeTok{.direction =} \StringTok{"updown"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Seccio =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"FUTBOL FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"FUTBOL"}\NormalTok{,}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"VOLEIBOL FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"VOLEIBOL"}\NormalTok{,}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"BÀSQUET FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"BÀSQUET"}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio  }
+\NormalTok{  ))}
+
+\FunctionTok{unique}\NormalTok{(dfpreeco}\SpecialCharTok{$}\NormalTok{Seccio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] "ATLETISME"          "BÀSQUET"            "FUTBOL"            
+ [4] "FUTBOL SALA"        "HANDBOL"            "HOQUEI GEL"        
+ [7] "HOQUEI HERBA"       "HOQUEI PATINS"      "PATINATGE ARTÍSTIC"
+[10] "RUGBI"              "VOLEIBOL"           NA                  
+[13] "BÀSQUET CR"        
+\end{verbatim}
+
+\hypertarget{densitometria}{%
+\section{Densitometria}\label{densitometria}}
+
+Repetim tot el procés per l'altre base de dades
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}}\NormalTok{ densitometria}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+\NormalTok{    Secció }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(Secció),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}}\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}}\NormalTok{),}
+    \AttributeTok{Sexe =} \FunctionTok{as.factor}\NormalTok{(Sexe),}
+    \AttributeTok{Prova =} \FunctionTok{as.factor}\NormalTok{(Prova), }
+    \AttributeTok{Any  =} \FunctionTok{year}\NormalTok{(densitometria}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"Densito {-} CC {-} "}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{gsub}\NormalTok{(}\StringTok{"[ .{-}]"}\NormalTok{, }\StringTok{""}\NormalTok{, .x)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"DensitoCC"}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .x }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{str\_replace}\NormalTok{(}\StringTok{"DensitoCC"}\NormalTok{, }\StringTok{""}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"Densito {-} CMG {-} "}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{gsub}\NormalTok{(}\StringTok{"[ .{-}]"}\NormalTok{, }\StringTok{""}\NormalTok{, .x)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"DensitoCMG"}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .x }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{str\_replace}\NormalTok{(}\StringTok{"DensitoCMG"}\NormalTok{, }\StringTok{""}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{ends\_with}\NormalTok{(}\StringTok{"(\%Grasa)"}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{gsub}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{(.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{)"}\NormalTok{, }\StringTok{"\_percentatge"}\NormalTok{, .x)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{ends\_with}\NormalTok{(}\StringTok{"(g)"}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{gsub}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{(.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{)"}\NormalTok{, }\StringTok{"\_g"}\NormalTok{, .x)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename\_at}\NormalTok{(}\FunctionTok{vars}\NormalTok{(}\FunctionTok{ends\_with}\NormalTok{(}\StringTok{"(kg)"}\NormalTok{)), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{gsub}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{(.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{)"}\NormalTok{, }\StringTok{"\_kfg"}\NormalTok{, .x)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}
+    \AttributeTok{Id =} \StringTok{\textasciigrave{}}\AttributeTok{Id Persona}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Data\_densi =} \StringTok{\textasciigrave{}}\AttributeTok{Data Prova}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Seccio =} \StringTok{\textasciigrave{}}\AttributeTok{Secció}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Tronco\_total =} \StringTok{\textasciigrave{}}\AttributeTok{Tronco/Total}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Piernas\_total =} \StringTok{\textasciigrave{}}\AttributeTok{Piernas/Total}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \AttributeTok{Brazos\_Piernas\_total =} \StringTok{\textasciigrave{}}\AttributeTok{(Brazos+Piernas)/Tronco}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Temporada))}
+\end{Highlighting}
+\end{Shaded}
+
+Dades repetides:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rep }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id, Data\_densi) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tally}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(n}\SpecialCharTok{\textgreater{}}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{left\_join}\NormalTok{(dfpredensi, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"Id"}\NormalTok{, }\StringTok{"Data\_densi"}\NormalTok{))}
+
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{distinct}\NormalTok{(Id, Data\_densi, }\AttributeTok{.keep\_all =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Filas con columnas de proves NA's:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(}\FunctionTok{rowSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(., }\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Seccio, Id, Edat, Prova, Sexe,  Data\_densi))))) }\SpecialCharTok{\textgreater{}=} \DecValTok{101}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Imputamos variable Secció:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{fill}\NormalTok{(Seccio, }\AttributeTok{.direction =} \StringTok{"updown"}\NormalTok{)  }
+\end{Highlighting}
+\end{Shaded}
+
+Buscar coincidencias de IDs entre els dos DataFrames per completar la columna Secció.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Id sense Secció en df desitometria}
+\NormalTok{id\_na\_seccio }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{all}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(Seccio))) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{distinct}\NormalTok{(Id, Seccio)}
+
+\CommentTok{\# Id amb algun no.na en Secció en df ecocardiogramas}
+\NormalTok{id\_seccio }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(Seccio)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{distinct}\NormalTok{(Id, Seccio) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\#Id que podrem imputar en el dataframe dfpredesi:}
+\NormalTok{id\_seccio\_densi }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(id\_seccio, id\_na\_seccio, }\AttributeTok{by =} \StringTok{"Id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Seccio.y) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{Seccio =}\NormalTok{ Seccio.x)}
+\end{Highlighting}
+\end{Shaded}
+
+I de la mateixa forma mirem els que podrem imputar en ecocardiograma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Id sense Secció en df ecocardiogramas}
+\NormalTok{id\_na\_seccio }\OtherTok{\textless{}{-}}\NormalTok{ dfpreeco}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{all}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(Seccio))) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{distinct}\NormalTok{(Id, Seccio)}
+
+\CommentTok{\# Id amb algun no.na en Secció en df desitometries}
+\NormalTok{id\_seccio }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(Seccio)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{distinct}\NormalTok{(Id, Seccio) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\#Id que podrem imputar en el dataframe dfpreeco:}
+\NormalTok{id\_seccio\_eco }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(id\_seccio, id\_na\_seccio, }\AttributeTok{by =} \StringTok{"Id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Seccio.y) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{Seccio =}\NormalTok{ Seccio.x)}
+\end{Highlighting}
+\end{Shaded}
+
+Imputem els valors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpreeco }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(dfpreeco, id\_seccio\_eco, }\AttributeTok{by =} \StringTok{"Id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{Seccio =}\NormalTok{ Seccio.x)}\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{mutate}\NormalTok{(}
+                    \AttributeTok{Seccio =} \FunctionTok{case\_when}\NormalTok{(}
+                      \FunctionTok{is.na}\NormalTok{(Seccio) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio.y,}
+                      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio))}\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Seccio.y)}\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+                \FunctionTok{fill}\NormalTok{(Seccio, }\AttributeTok{.direction =} \StringTok{"updown"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{ungroup}\NormalTok{()}
+
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(dfpredensi, id\_seccio\_densi, }\AttributeTok{by =} \StringTok{"Id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{Seccio =}\NormalTok{ Seccio.x)}\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{mutate}\NormalTok{(}
+                    \AttributeTok{Seccio =} \FunctionTok{case\_when}\NormalTok{(}
+                      \FunctionTok{is.na}\NormalTok{(Seccio) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio.y,}
+                      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Seccio.y) }\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{group\_by}\NormalTok{(Id) }\SpecialCharTok{\%\textgreater{}\%}
+                \FunctionTok{fill}\NormalTok{(Seccio, }\AttributeTok{.direction =} \StringTok{"updown"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} 
+                \FunctionTok{ungroup}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dfpredensi }\OtherTok{\textless{}{-}}\NormalTok{ dfpredensi }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Seccio =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"FUTBOL FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"FUTBOL"}\NormalTok{,}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"VOLEIBOL FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"VOLEIBOL"}\NormalTok{,}
+\NormalTok{    Seccio }\SpecialCharTok{==} \StringTok{"BÀSQUET FEMENÍ"} \SpecialCharTok{\textasciitilde{}} \StringTok{"BÀSQUET"}\NormalTok{,}
+    \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Seccio  }
+\NormalTok{  ))}
+
+\FunctionTok{unique}\NormalTok{(dfpredensi}\SpecialCharTok{$}\NormalTok{Seccio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] "ATLETISME"          "BÀSQUET"            "FUTBOL"            
+ [4] "FUTBOL SALA"        "HANDBOL"            "HOQUEI GEL"        
+ [7] "HOQUEI HERBA"       "HOQUEI PATINS"      "PATINATGE ARTÍSTIC"
+[10] "RUGBI"              "VOLEIBOL"           NA                  
+[13] "BÀSQUET CR"        
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfpreeco, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 6,383
+Columns: 8
+$ Seccio   <chr> "ATLETISME", "ATLETISME", "ATLETISME", "ATLETISME", "ATLETISM~
+$ Equip    <fct> Sènior masculí, Sènior femení, Sènior femení, Sènior femení, ~
+$ Id       <fct> 124810, 104346937, 8772507, 12991158, 104351814, 104347466, 1~
+$ Sexe     <fct> M, F, F, F, F, F, F, F, F, F, M, M, F, F, M, M, F, M, M, F, F~
+$ Edat     <dbl> 38.41, 14.79, 19.04, 19.05, 32.12, 16.88, 19.57, 18.69, 17.59~
+$ Prova    <fct> Ecocardiograma, Ecocardiograma, Ecocardiograma, Ecocardiogram~
+$ Data_eco <dttm> 2014-10-16 12:15:00, 2014-10-16 16:15:00, 2014-10-02 11:30:0~
+$ Pes      <dbl> 88, 157, 61, 63, 61, 49, 57, 48, 67, 53, 67, 72, 66, 49, 60, ~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfpredensi, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 6,382
+Columns: 8
+$ Seccio                     <chr> "ATLETISME", "ATLETISME", "ATLETISME", "ATL~
+$ Id                         <fct> 1193801, 105274175, 1452702, 15073064, 1052~
+$ Sexe                       <fct> M, M, M, F, M, F, F, F, M, M, M, M, M, M, M~
+$ Edat                       <dbl> 20.07, 23.52, 17.63, 18.64, 18.64, 29.99, 2~
+$ Prova                      <fct> Densitometria, Densitometria, Densitometria~
+$ Data_densi                 <dttm> 2015-04-24 19:00:00, 2015-07-23 10:00:00, ~
+$ BrazoIzqTejido_percentatge <dbl> 14.1, 10.4, 10.7, 21.9, 14.9, 19.9, 27.1, 2~
+$ BrazoIzqRegión_percentatge <dbl> 13.3, 9.8, 10.1, 20.7, 14.1, 18.6, 25.7, 21~
+\end{verbatim}
+
+\hypertarget{cross}{%
+\chapter{Cross-references}\label{cross}}
+
+Cross-references make it easier for your readers to find and link to elements in your book.
+
+\hypertarget{chapters-and-sub-chapters}{%
+\section{Chapters and sub-chapters}\label{chapters-and-sub-chapters}}
+
+There are two steps to cross-reference any heading:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Label the heading: \texttt{\#\ Hello\ world\ \{\#nice-label\}}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leave the label off if you like the automated heading generated based on your heading title: for example, \texttt{\#\ Hello\ world} = \texttt{\#\ Hello\ world\ \{\#hello-world\}}.
+  \item
+    To label an un-numbered heading, use: \texttt{\#\ Hello\ world\ \{-\#nice-label\}} or \texttt{\{\#\ Hello\ world\ .unnumbered\}}.
+  \end{itemize}
+\item
+  Next, reference the labeled heading anywhere in the text using \texttt{\textbackslash{}@ref(nice-label)}; for example, please see Chapter \ref{cross}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you prefer text as the link instead of a numbered reference use: \protect\hyperlink{cross}{any text you want can go here}.
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{captioned-figures-and-tables}{%
+\section{Captioned figures and tables}\label{captioned-figures-and-tables}}
+
+Figures and tables \emph{with captions} can also be cross-referenced from elsewhere in your book using \texttt{\textbackslash{}@ref(fig:chunk-label)} and \texttt{\textbackslash{}@ref(tab:chunk-label)}, respectively.
+
+See Figure \ref{fig:nice-fig}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{_main_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+Don't miss Table \ref{tab:nice-tab}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}
+  \FunctionTok{head}\NormalTok{(pressure, }\DecValTok{10}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
+  \AttributeTok{booktabs =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:nice-tab}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+temperature & pressure\\
+\midrule
+0 & 0.0002\\
+20 & 0.0012\\
+40 & 0.0060\\
+60 & 0.0300\\
+80 & 0.0900\\
+\addlinespace
+100 & 0.2700\\
+120 & 0.7500\\
+140 & 1.8500\\
+160 & 4.2000\\
+180 & 8.8000\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{parts}{%
+\chapter{Parts}\label{parts}}
+
+You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
+
+Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
+
+Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
+
+Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
+
+\hypertarget{footnotes-and-citations}{%
+\chapter{Footnotes and citations}\label{footnotes-and-citations}}
+
+\hypertarget{footnotes}{%
+\section{Footnotes}\label{footnotes}}
+
+Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
+
+\hypertarget{citations}{%
+\section{Citations}\label{citations}}
+
+Reference items in your bibliography file(s) using \texttt{@key}.
+
+For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib).
+Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
+
+The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
+
+\hypertarget{blocks}{%
+\chapter{Blocks}\label{blocks}}
+
+\hypertarget{equations}{%
+\section{Equations}\label{equations}}
+
+Here is an equation.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
+
+\hypertarget{theorems-and-proofs}{%
+\section{Theorems and proofs}\label{theorems-and-proofs}}
+
+Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
+
+\begin{theorem}
+\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse
+and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have
+\[a^2 + b^2 = c^2\]
+\end{theorem}
+
+Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
+
+\hypertarget{callout-blocks}{%
+\section{Callout blocks}\label{callout-blocks}}
+
+The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
+
+\hypertarget{sharing-your-book}{%
+\chapter{Sharing your book}\label{sharing-your-book}}
+
+\hypertarget{publishing}{%
+\section{Publishing}\label{publishing}}
+
+HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
+
+\hypertarget{pages}{%
+\section{404 pages}\label{pages}}
+
+By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
+
+\hypertarget{metadata-for-sharing}{%
+\section{Metadata for sharing}\label{metadata-for-sharing}}
+
+Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
+
+This \texttt{gitbook} uses the same social sharing data across all chapters in your book- all links shared will look the same.
+
+Specify your book's source repository on GitHub using the \texttt{edit} key under the configuration options in the \texttt{\_output.yml} file, which allows users to suggest an edit by linking to a chapter's source file.
+
+Read more about the features of this output format here:
+
+\url{https://pkgs.rstudio.com/bookdown/reference/gitbook.html}
+
+Or use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{gitbook}
+\end{Highlighting}
+\end{Shaded}
+
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

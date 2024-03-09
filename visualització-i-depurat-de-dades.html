@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Preprocesat de dades densitometria i ecocardiograma</title>
+  <meta name="description" content="Preprocesat de dades densitometria i ecocardiograma" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Preprocesat de dades densitometria i ecocardiograma" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Preprocesat de dades densitometria i ecocardiograma" />
+  
+  
+  
+
+<meta name="author" content="Júlia Cano" />
+
+
+<meta name="date" content="2024-03-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="outliers.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html"><i class="fa fa-check"></i><b>1</b> Visualització i depurat de dades</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#ecocardiograma"><i class="fa fa-check"></i><b>1.1</b> Ecocardiograma</a></li>
+<li class="chapter" data-level="1.2" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#densitometria"><i class="fa fa-check"></i><b>1.2</b> Densitometria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i><b>2</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="outliers.html"><a href="outliers.html#densitometria-1"><i class="fa fa-check"></i><b>2.1</b> Densitometria</a></li>
+<li class="chapter" data-level="2.2" data-path="outliers.html"><a href="outliers.html#ecocardiograma-1"><i class="fa fa-check"></i><b>2.2</b> Ecocardiograma</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="missings.html"><a href="missings.html"><i class="fa fa-check"></i><b>3</b> Missings</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="missings.html"><a href="missings.html#imputació-multiple"><i class="fa fa-check"></i><b>3.1</b> Imputació multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptiva.html"><a href="descriptiva.html"><i class="fa fa-check"></i><b>4</b> Descriptiva</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptiva.html"><a href="descriptiva.html#visió-general"><i class="fa fa-check"></i><b>4.1</b> Visió general</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptiva.html"><a href="descriptiva.html#descriptiva-de-les-variables-de-densitometriaecocardiogramas-per-sexe-esport-any-i-edat"><i class="fa fa-check"></i><b>4.2</b> Descriptiva de les variables de densitometria/ecocardiogramas per sexe, esport, any i edat</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualizació-de-dades-longitudinals.html"><a href="visualizació-de-dades-longitudinals.html"><i class="fa fa-check"></i><b>5</b> Visualizació de dades longitudinals</a></li>
+<li class="chapter" data-level="6" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><i class="fa fa-check"></i><b>6</b> PCA, co-inercia i anàlisis de correlació canonica</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-components-principalspca"><i class="fa fa-check"></i><b>6.1</b> Anàlisis de Components Principals(PCA)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#representació-gràfica-pca"><i class="fa fa-check"></i><b>6.1.1</b> Representació gràfica PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-correlació-canònica"><i class="fa fa-check"></i><b>6.2</b> Anàlisis de correlació canònica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Preprocesat de dades densitometria i ecocardiograma</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Preprocesat de dades densitometria i ecocardiograma</h1>
+<p class="author"><em>Júlia Cano</em></p>
+<p class="date"><em>2024-03-09</em></p>
+</div>
+<div id="visualització-i-depurat-de-dades" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítol  1</span> Visualització i depurat de dades<a href="visualització-i-depurat-de-dades.html#visualització-i-depurat-de-dades" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Disposem de dos bases de dades, una sobre ecocardiogrames i altre sobre densitometries en esportistes. Anem a fer el preprocessat de dades en ambdues.</p>
+<div id="ecocardiograma" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Ecocardiograma<a href="visualització-i-depurat-de-dades.html#ecocardiograma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Carreguem les dades i les visualitzem.
+Passem les columnes Temporada, Secció, Equip i Prova a factor i canviem el nom de les altres variables per treballar-hi millor:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualització-i-depurat-de-dades.html#cb1-1" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> ecocardiograma<span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="visualització-i-depurat-de-dades.html#cb1-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-3"><a href="visualització-i-depurat-de-dades.html#cb1-3" tabindex="-1"></a>    <span class="at">Temporada =</span> <span class="fu">as.factor</span>(Temporada),</span>
+<span id="cb1-4"><a href="visualització-i-depurat-de-dades.html#cb1-4" tabindex="-1"></a>    <span class="st">`</span><span class="at">Secció</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">Secció</span><span class="st">`</span>),</span>
+<span id="cb1-5"><a href="visualització-i-depurat-de-dades.html#cb1-5" tabindex="-1"></a>    <span class="at">Equip =</span> <span class="fu">as.factor</span>(Equip),</span>
+<span id="cb1-6"><a href="visualització-i-depurat-de-dades.html#cb1-6" tabindex="-1"></a>    <span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span>),</span>
+<span id="cb1-7"><a href="visualització-i-depurat-de-dades.html#cb1-7" tabindex="-1"></a>    <span class="at">Sexe =</span> <span class="fu">as.factor</span>(Sexe),</span>
+<span id="cb1-8"><a href="visualització-i-depurat-de-dades.html#cb1-8" tabindex="-1"></a>    <span class="at">Prova =</span> <span class="fu">as.factor</span>(Prova),</span>
+<span id="cb1-9"><a href="visualització-i-depurat-de-dades.html#cb1-9" tabindex="-1"></a>    <span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span>,</span>
+<span id="cb1-10"><a href="visualització-i-depurat-de-dades.html#cb1-10" tabindex="-1"></a>    <span class="at">Any =</span>  <span class="fu">year</span>(ecocardiograma<span class="sc">$</span><span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span>)</span>
+<span id="cb1-11"><a href="visualització-i-depurat-de-dades.html#cb1-11" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(</span>
+<span id="cb1-12"><a href="visualització-i-depurat-de-dades.html#cb1-12" tabindex="-1"></a>    <span class="at">Seccio =</span><span class="st">`</span><span class="at">Secció</span><span class="st">`</span>,</span>
+<span id="cb1-13"><a href="visualització-i-depurat-de-dades.html#cb1-13" tabindex="-1"></a>    <span class="at">Id =</span> <span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span>,</span>
+<span id="cb1-14"><a href="visualització-i-depurat-de-dades.html#cb1-14" tabindex="-1"></a>    <span class="at">Data_eco =</span> <span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span>,</span>
+<span id="cb1-15"><a href="visualització-i-depurat-de-dades.html#cb1-15" tabindex="-1"></a>    <span class="at">Diam_ven_esq_diast =</span> <span class="st">`</span><span class="at">Diam. ventricle esq. Diast.</span><span class="st">`</span>,</span>
+<span id="cb1-16"><a href="visualització-i-depurat-de-dades.html#cb1-16" tabindex="-1"></a>    <span class="at">Diam_ven_esq_sist =</span> <span class="st">`</span><span class="at">Diam. ventricle esq. Sist.</span><span class="st">`</span>,</span>
+<span id="cb1-17"><a href="visualització-i-depurat-de-dades.html#cb1-17" tabindex="-1"></a>    <span class="at">Gruix_tabic =</span> <span class="st">`</span><span class="at">Gruix tabic interventricular</span><span class="st">`</span>,</span>
+<span id="cb1-18"><a href="visualització-i-depurat-de-dades.html#cb1-18" tabindex="-1"></a>    <span class="at">Gruix_paret =</span> <span class="st">`</span><span class="at">Gruix paret posterior V.E.</span><span class="st">`</span>,</span>
+<span id="cb1-19"><a href="visualització-i-depurat-de-dades.html#cb1-19" tabindex="-1"></a>    <span class="at">Auricula_esq =</span> <span class="st">`</span><span class="at">Aurícula esq.</span><span class="st">`</span>,</span>
+<span id="cb1-20"><a href="visualització-i-depurat-de-dades.html#cb1-20" tabindex="-1"></a>    <span class="at">Diam_aorta =</span> <span class="st">`</span><span class="at">Diam. arrel aorta</span><span class="st">`</span>,</span>
+<span id="cb1-21"><a href="visualització-i-depurat-de-dades.html#cb1-21" tabindex="-1"></a>    </span>
+<span id="cb1-22"><a href="visualització-i-depurat-de-dades.html#cb1-22" tabindex="-1"></a>    <span class="at">Diam_ven_esq_i =</span> <span class="st">`</span><span class="at">Diam. ventricle esq. Diast.(i)</span><span class="st">`</span>,</span>
+<span id="cb1-23"><a href="visualització-i-depurat-de-dades.html#cb1-23" tabindex="-1"></a>    <span class="at">Diam_ven_esq_sist_i =</span> <span class="st">`</span><span class="at">Diam. ventricle esq. Sist.(i)</span><span class="st">`</span>,</span>
+<span id="cb1-24"><a href="visualització-i-depurat-de-dades.html#cb1-24" tabindex="-1"></a>    <span class="at">Gruix_tabic_i =</span> <span class="st">`</span><span class="at">Gruix tabic interventricul.(i)</span><span class="st">`</span>,</span>
+<span id="cb1-25"><a href="visualització-i-depurat-de-dades.html#cb1-25" tabindex="-1"></a>    <span class="at">Gruix_paret_i =</span> <span class="st">`</span><span class="at">Gruix paret posterior V.E.(i)</span><span class="st">`</span>,</span>
+<span id="cb1-26"><a href="visualització-i-depurat-de-dades.html#cb1-26" tabindex="-1"></a>    <span class="at">Auricula_esq_i =</span> <span class="st">`</span><span class="at">Aurícula esq.(i)</span><span class="st">`</span>,</span>
+<span id="cb1-27"><a href="visualització-i-depurat-de-dades.html#cb1-27" tabindex="-1"></a>    <span class="at">Diam_aorta_i =</span> <span class="st">`</span><span class="at">Diam. arrel aorta(i)</span><span class="st">`</span></span>
+<span id="cb1-28"><a href="visualització-i-depurat-de-dades.html#cb1-28" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Temporada, Naixament)) </span></code></pre></div>
+<p>Eliminem aquelles files on totes les columnes de proves son NA’s i no ens aporten informació.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="visualització-i-depurat-de-dades.html#cb2-1" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="visualització-i-depurat-de-dades.html#cb2-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(., <span class="sc">-</span><span class="fu">c</span>(Seccio, Equip, Id, Sexe, Edat, Prova, Data_eco, Any)))) <span class="sc">&gt;=</span> <span class="dv">14</span> ) ) </span></code></pre></div>
+<p>Ara comparem que no hi haguin proves repetides, és a dir, que per la mateixa persona i mateixa data tinguem dos valors:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="visualització-i-depurat-de-dades.html#cb3-1" tabindex="-1"></a>rep<span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="visualització-i-depurat-de-dades.html#cb3-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id, Data_eco) <span class="sc">%&gt;%</span>  </span>
+<span id="cb3-3"><a href="visualització-i-depurat-de-dades.html#cb3-3" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="visualització-i-depurat-de-dades.html#cb3-4" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="visualització-i-depurat-de-dades.html#cb3-5" tabindex="-1"></a>  <span class="fu">left_join</span>(dfpreeco, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Data_eco&quot;</span>)) </span>
+<span id="cb3-6"><a href="visualització-i-depurat-de-dades.html#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="visualització-i-depurat-de-dades.html#cb3-7" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(Id, Data_eco, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Hi han missings en columnes que poden no ser de veritat. És a dir, que la informació s’entrés en alguna altra fila. Concretament en les columnes Seccio, Equip i Edat. Anem a imputar els possibles:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="visualització-i-depurat-de-dades.html#cb4-1" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="visualització-i-depurat-de-dades.html#cb4-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="visualització-i-depurat-de-dades.html#cb4-3" tabindex="-1"></a>  <span class="fu">fill</span>(Seccio, <span class="at">.direction =</span> <span class="st">&quot;updown&quot;</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="visualització-i-depurat-de-dades.html#cb4-4" tabindex="-1"></a>  <span class="fu">fill</span>(Equip, <span class="at">.direction =</span> <span class="st">&quot;updown&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualització-i-depurat-de-dades.html#cb5-1" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="visualització-i-depurat-de-dades.html#cb5-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Seccio =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-3"><a href="visualització-i-depurat-de-dades.html#cb5-3" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;FUTBOL FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;FUTBOL&quot;</span>,</span>
+<span id="cb5-4"><a href="visualització-i-depurat-de-dades.html#cb5-4" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;VOLEIBOL FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;VOLEIBOL&quot;</span>,</span>
+<span id="cb5-5"><a href="visualització-i-depurat-de-dades.html#cb5-5" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;BÀSQUET FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;BÀSQUET&quot;</span>,</span>
+<span id="cb5-6"><a href="visualització-i-depurat-de-dades.html#cb5-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> Seccio  </span>
+<span id="cb5-7"><a href="visualització-i-depurat-de-dades.html#cb5-7" tabindex="-1"></a>  ))</span>
+<span id="cb5-8"><a href="visualització-i-depurat-de-dades.html#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="visualització-i-depurat-de-dades.html#cb5-9" tabindex="-1"></a><span class="fu">unique</span>(dfpreeco<span class="sc">$</span>Seccio)</span></code></pre></div>
+<pre><code> [1] &quot;ATLETISME&quot;          &quot;BÀSQUET&quot;            &quot;FUTBOL&quot;            
+ [4] &quot;FUTBOL SALA&quot;        &quot;HANDBOL&quot;            &quot;HOQUEI GEL&quot;        
+ [7] &quot;HOQUEI HERBA&quot;       &quot;HOQUEI PATINS&quot;      &quot;PATINATGE ARTÍSTIC&quot;
+[10] &quot;RUGBI&quot;              &quot;VOLEIBOL&quot;           NA                  
+[13] &quot;BÀSQUET CR&quot;        </code></pre>
+</div>
+<div id="densitometria" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Densitometria<a href="visualització-i-depurat-de-dades.html#densitometria" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Repetim tot el procés per l’altre base de dades</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualització-i-depurat-de-dades.html#cb7-1" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> densitometria<span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="visualització-i-depurat-de-dades.html#cb7-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="visualització-i-depurat-de-dades.html#cb7-3" tabindex="-1"></a>    Secció <span class="ot">=</span> <span class="fu">as.factor</span>(Secció),</span>
+<span id="cb7-4"><a href="visualització-i-depurat-de-dades.html#cb7-4" tabindex="-1"></a>    <span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span><span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span>),</span>
+<span id="cb7-5"><a href="visualització-i-depurat-de-dades.html#cb7-5" tabindex="-1"></a>    <span class="at">Sexe =</span> <span class="fu">as.factor</span>(Sexe),</span>
+<span id="cb7-6"><a href="visualització-i-depurat-de-dades.html#cb7-6" tabindex="-1"></a>    <span class="at">Prova =</span> <span class="fu">as.factor</span>(Prova), </span>
+<span id="cb7-7"><a href="visualització-i-depurat-de-dades.html#cb7-7" tabindex="-1"></a>    <span class="at">Any  =</span> <span class="fu">year</span>(densitometria<span class="sc">$</span><span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span>))<span class="sc">%&gt;%</span> </span>
+<span id="cb7-8"><a href="visualització-i-depurat-de-dades.html#cb7-8" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Densito - CC - &quot;</span>)), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;[ .-]&quot;</span>, <span class="st">&quot;&quot;</span>, .x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-9"><a href="visualització-i-depurat-de-dades.html#cb7-9" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">starts_with</span>(<span class="st">&quot;DensitoCC&quot;</span>)), <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">str_replace</span>(<span class="st">&quot;DensitoCC&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="visualització-i-depurat-de-dades.html#cb7-10" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Densito - CMG - &quot;</span>)), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;[ .-]&quot;</span>, <span class="st">&quot;&quot;</span>, .x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-11"><a href="visualització-i-depurat-de-dades.html#cb7-11" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">starts_with</span>(<span class="st">&quot;DensitoCMG&quot;</span>)), <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">str_replace</span>(<span class="st">&quot;DensitoCMG&quot;</span>, <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="visualització-i-depurat-de-dades.html#cb7-12" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">ends_with</span>(<span class="st">&quot;(%Grasa)&quot;</span>)), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(.*</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;_percentatge&quot;</span>, .x)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a href="visualització-i-depurat-de-dades.html#cb7-13" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">ends_with</span>(<span class="st">&quot;(g)&quot;</span>)), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(.*</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;_g&quot;</span>, .x)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a href="visualització-i-depurat-de-dades.html#cb7-14" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="fu">vars</span>(<span class="fu">ends_with</span>(<span class="st">&quot;(kg)&quot;</span>)), <span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(.*</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;_kfg&quot;</span>, .x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-15"><a href="visualització-i-depurat-de-dades.html#cb7-15" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(</span>
+<span id="cb7-16"><a href="visualització-i-depurat-de-dades.html#cb7-16" tabindex="-1"></a>    <span class="at">Id =</span> <span class="st">`</span><span class="at">Id Persona</span><span class="st">`</span>,</span>
+<span id="cb7-17"><a href="visualització-i-depurat-de-dades.html#cb7-17" tabindex="-1"></a>    <span class="at">Data_densi =</span> <span class="st">`</span><span class="at">Data Prova</span><span class="st">`</span>,</span>
+<span id="cb7-18"><a href="visualització-i-depurat-de-dades.html#cb7-18" tabindex="-1"></a>    <span class="at">Seccio =</span> <span class="st">`</span><span class="at">Secció</span><span class="st">`</span>,</span>
+<span id="cb7-19"><a href="visualització-i-depurat-de-dades.html#cb7-19" tabindex="-1"></a>    <span class="at">Tronco_total =</span> <span class="st">`</span><span class="at">Tronco/Total</span><span class="st">`</span>,</span>
+<span id="cb7-20"><a href="visualització-i-depurat-de-dades.html#cb7-20" tabindex="-1"></a>    <span class="at">Piernas_total =</span> <span class="st">`</span><span class="at">Piernas/Total</span><span class="st">`</span>,</span>
+<span id="cb7-21"><a href="visualització-i-depurat-de-dades.html#cb7-21" tabindex="-1"></a>    <span class="at">Brazos_Piernas_total =</span> <span class="st">`</span><span class="at">(Brazos+Piernas)/Tronco</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-22"><a href="visualització-i-depurat-de-dades.html#cb7-22" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Temporada))</span></code></pre></div>
+<p>Dades repetides:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="visualització-i-depurat-de-dades.html#cb8-1" tabindex="-1"></a>rep <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="visualització-i-depurat-de-dades.html#cb8-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id, Data_densi) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="visualització-i-depurat-de-dades.html#cb8-3" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="visualització-i-depurat-de-dades.html#cb8-4" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="visualització-i-depurat-de-dades.html#cb8-5" tabindex="-1"></a>  <span class="fu">left_join</span>(dfpredensi, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Data_densi&quot;</span>))</span>
+<span id="cb8-6"><a href="visualització-i-depurat-de-dades.html#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="visualització-i-depurat-de-dades.html#cb8-7" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(Id, Data_densi, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Filas con columnas de proves NA’s:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="visualització-i-depurat-de-dades.html#cb9-1" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="visualització-i-depurat-de-dades.html#cb9-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(., <span class="sc">-</span><span class="fu">c</span>(Seccio, Id, Edat, Prova, Sexe,  Data_densi))))) <span class="sc">&gt;=</span> <span class="dv">101</span>)</span></code></pre></div>
+<p>Imputamos variable Secció:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualització-i-depurat-de-dades.html#cb10-1" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="visualització-i-depurat-de-dades.html#cb10-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="visualització-i-depurat-de-dades.html#cb10-3" tabindex="-1"></a>  <span class="fu">fill</span>(Seccio, <span class="at">.direction =</span> <span class="st">&quot;updown&quot;</span>)  </span></code></pre></div>
+<p>Buscar coincidencias de IDs entre els dos DataFrames per completar la columna Secció.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualització-i-depurat-de-dades.html#cb11-1" tabindex="-1"></a><span class="co">#Id sense Secció en df desitometria</span></span>
+<span id="cb11-2"><a href="visualització-i-depurat-de-dades.html#cb11-2" tabindex="-1"></a>id_na_seccio <span class="ot">&lt;-</span> dfpredensi<span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="visualització-i-depurat-de-dades.html#cb11-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="visualització-i-depurat-de-dades.html#cb11-4" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">all</span>(<span class="fu">is.na</span>(Seccio))) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="visualització-i-depurat-de-dades.html#cb11-5" tabindex="-1"></a>  <span class="fu">distinct</span>(Id, Seccio)</span>
+<span id="cb11-6"><a href="visualització-i-depurat-de-dades.html#cb11-6" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="visualització-i-depurat-de-dades.html#cb11-7" tabindex="-1"></a><span class="co"># Id amb algun no.na en Secció en df ecocardiogramas</span></span>
+<span id="cb11-8"><a href="visualització-i-depurat-de-dades.html#cb11-8" tabindex="-1"></a>id_seccio <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="visualització-i-depurat-de-dades.html#cb11-9" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="visualització-i-depurat-de-dades.html#cb11-10" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Seccio)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-11"><a href="visualització-i-depurat-de-dades.html#cb11-11" tabindex="-1"></a>  <span class="fu">distinct</span>(Id, Seccio) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-12"><a href="visualització-i-depurat-de-dades.html#cb11-12" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb11-13"><a href="visualització-i-depurat-de-dades.html#cb11-13" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="visualització-i-depurat-de-dades.html#cb11-14" tabindex="-1"></a><span class="co">#Id que podrem imputar en el dataframe dfpredesi:</span></span>
+<span id="cb11-15"><a href="visualització-i-depurat-de-dades.html#cb11-15" tabindex="-1"></a>id_seccio_densi <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(id_seccio, id_na_seccio, <span class="at">by =</span> <span class="st">&quot;Id&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-16"><a href="visualització-i-depurat-de-dades.html#cb11-16" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Seccio.y) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-17"><a href="visualització-i-depurat-de-dades.html#cb11-17" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Seccio =</span> Seccio.x)</span></code></pre></div>
+<p>I de la mateixa forma mirem els que podrem imputar en ecocardiograma:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="visualització-i-depurat-de-dades.html#cb12-1" tabindex="-1"></a><span class="co">#Id sense Secció en df ecocardiogramas</span></span>
+<span id="cb12-2"><a href="visualització-i-depurat-de-dades.html#cb12-2" tabindex="-1"></a>id_na_seccio <span class="ot">&lt;-</span> dfpreeco<span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="visualització-i-depurat-de-dades.html#cb12-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="visualització-i-depurat-de-dades.html#cb12-4" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">all</span>(<span class="fu">is.na</span>(Seccio))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="visualització-i-depurat-de-dades.html#cb12-5" tabindex="-1"></a>  <span class="fu">distinct</span>(Id, Seccio)</span>
+<span id="cb12-6"><a href="visualització-i-depurat-de-dades.html#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="visualització-i-depurat-de-dades.html#cb12-7" tabindex="-1"></a><span class="co"># Id amb algun no.na en Secció en df desitometries</span></span>
+<span id="cb12-8"><a href="visualització-i-depurat-de-dades.html#cb12-8" tabindex="-1"></a>id_seccio <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="visualització-i-depurat-de-dades.html#cb12-9" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="visualització-i-depurat-de-dades.html#cb12-10" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Seccio)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-11"><a href="visualització-i-depurat-de-dades.html#cb12-11" tabindex="-1"></a>  <span class="fu">distinct</span>(Id, Seccio) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-12"><a href="visualització-i-depurat-de-dades.html#cb12-12" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb12-13"><a href="visualització-i-depurat-de-dades.html#cb12-13" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="visualització-i-depurat-de-dades.html#cb12-14" tabindex="-1"></a><span class="co">#Id que podrem imputar en el dataframe dfpreeco:</span></span>
+<span id="cb12-15"><a href="visualització-i-depurat-de-dades.html#cb12-15" tabindex="-1"></a>id_seccio_eco <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(id_seccio, id_na_seccio, <span class="at">by =</span> <span class="st">&quot;Id&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-16"><a href="visualització-i-depurat-de-dades.html#cb12-16" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Seccio.y) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-17"><a href="visualització-i-depurat-de-dades.html#cb12-17" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Seccio =</span> Seccio.x)</span></code></pre></div>
+<p>Imputem els valors:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="visualització-i-depurat-de-dades.html#cb13-1" tabindex="-1"></a>dfpreeco <span class="ot">&lt;-</span> <span class="fu">left_join</span>(dfpreeco, id_seccio_eco, <span class="at">by =</span> <span class="st">&quot;Id&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="visualització-i-depurat-de-dades.html#cb13-2" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Seccio =</span> Seccio.x)<span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="visualització-i-depurat-de-dades.html#cb13-3" tabindex="-1"></a>                <span class="fu">mutate</span>(</span>
+<span id="cb13-4"><a href="visualització-i-depurat-de-dades.html#cb13-4" tabindex="-1"></a>                    <span class="at">Seccio =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-5"><a href="visualització-i-depurat-de-dades.html#cb13-5" tabindex="-1"></a>                      <span class="fu">is.na</span>(Seccio) <span class="sc">~</span> Seccio.y,</span>
+<span id="cb13-6"><a href="visualització-i-depurat-de-dades.html#cb13-6" tabindex="-1"></a>                      <span class="cn">TRUE</span> <span class="sc">~</span> Seccio))<span class="sc">%&gt;%</span> </span>
+<span id="cb13-7"><a href="visualització-i-depurat-de-dades.html#cb13-7" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Seccio.y)<span class="sc">%&gt;%</span> </span>
+<span id="cb13-8"><a href="visualització-i-depurat-de-dades.html#cb13-8" tabindex="-1"></a>                <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="visualització-i-depurat-de-dades.html#cb13-9" tabindex="-1"></a>                <span class="fu">fill</span>(Seccio, <span class="at">.direction =</span> <span class="st">&quot;updown&quot;</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb13-10"><a href="visualització-i-depurat-de-dades.html#cb13-10" tabindex="-1"></a>                <span class="fu">ungroup</span>()</span>
+<span id="cb13-11"><a href="visualització-i-depurat-de-dades.html#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="visualització-i-depurat-de-dades.html#cb13-12" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> <span class="fu">left_join</span>(dfpredensi, id_seccio_densi, <span class="at">by =</span> <span class="st">&quot;Id&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-13"><a href="visualització-i-depurat-de-dades.html#cb13-13" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Seccio =</span> Seccio.x)<span class="sc">%&gt;%</span> </span>
+<span id="cb13-14"><a href="visualització-i-depurat-de-dades.html#cb13-14" tabindex="-1"></a>                <span class="fu">mutate</span>(</span>
+<span id="cb13-15"><a href="visualització-i-depurat-de-dades.html#cb13-15" tabindex="-1"></a>                    <span class="at">Seccio =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-16"><a href="visualització-i-depurat-de-dades.html#cb13-16" tabindex="-1"></a>                      <span class="fu">is.na</span>(Seccio) <span class="sc">~</span> Seccio.y,</span>
+<span id="cb13-17"><a href="visualització-i-depurat-de-dades.html#cb13-17" tabindex="-1"></a>                      <span class="cn">TRUE</span> <span class="sc">~</span> Seccio)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-18"><a href="visualització-i-depurat-de-dades.html#cb13-18" tabindex="-1"></a>                dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Seccio.y) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-19"><a href="visualització-i-depurat-de-dades.html#cb13-19" tabindex="-1"></a>                <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb13-20"><a href="visualització-i-depurat-de-dades.html#cb13-20" tabindex="-1"></a>                <span class="fu">fill</span>(Seccio, <span class="at">.direction =</span> <span class="st">&quot;updown&quot;</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb13-21"><a href="visualització-i-depurat-de-dades.html#cb13-21" tabindex="-1"></a>                <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="visualització-i-depurat-de-dades.html#cb14-1" tabindex="-1"></a>dfpredensi <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="visualització-i-depurat-de-dades.html#cb14-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Seccio =</span> <span class="fu">case_when</span>(</span>
+<span id="cb14-3"><a href="visualització-i-depurat-de-dades.html#cb14-3" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;FUTBOL FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;FUTBOL&quot;</span>,</span>
+<span id="cb14-4"><a href="visualització-i-depurat-de-dades.html#cb14-4" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;VOLEIBOL FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;VOLEIBOL&quot;</span>,</span>
+<span id="cb14-5"><a href="visualització-i-depurat-de-dades.html#cb14-5" tabindex="-1"></a>    Seccio <span class="sc">==</span> <span class="st">&quot;BÀSQUET FEMENÍ&quot;</span> <span class="sc">~</span> <span class="st">&quot;BÀSQUET&quot;</span>,</span>
+<span id="cb14-6"><a href="visualització-i-depurat-de-dades.html#cb14-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> Seccio  </span>
+<span id="cb14-7"><a href="visualització-i-depurat-de-dades.html#cb14-7" tabindex="-1"></a>  ))</span>
+<span id="cb14-8"><a href="visualització-i-depurat-de-dades.html#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="visualització-i-depurat-de-dades.html#cb14-9" tabindex="-1"></a><span class="fu">unique</span>(dfpredensi<span class="sc">$</span>Seccio)</span></code></pre></div>
+<pre><code> [1] &quot;ATLETISME&quot;          &quot;BÀSQUET&quot;            &quot;FUTBOL&quot;            
+ [4] &quot;FUTBOL SALA&quot;        &quot;HANDBOL&quot;            &quot;HOQUEI GEL&quot;        
+ [7] &quot;HOQUEI HERBA&quot;       &quot;HOQUEI PATINS&quot;      &quot;PATINATGE ARTÍSTIC&quot;
+[10] &quot;RUGBI&quot;              &quot;VOLEIBOL&quot;           NA                  
+[13] &quot;BÀSQUET CR&quot;        </code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="visualització-i-depurat-de-dades.html#cb16-1" tabindex="-1"></a><span class="fu">glimpse</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(dfpreeco, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>))</span></code></pre></div>
+<pre><code>Rows: 6,383
+Columns: 8
+$ Seccio   &lt;chr&gt; &quot;ATLETISME&quot;, &quot;ATLETISME&quot;, &quot;ATLETISME&quot;, &quot;ATLETISME&quot;, &quot;ATLETISM…
+$ Equip    &lt;fct&gt; Sènior masculí, Sènior femení, Sènior femení, Sènior femení, …
+$ Id       &lt;fct&gt; 124810, 104346937, 8772507, 12991158, 104351814, 104347466, 1…
+$ Sexe     &lt;fct&gt; M, F, F, F, F, F, F, F, F, F, M, M, F, F, M, M, F, M, M, F, F…
+$ Edat     &lt;dbl&gt; 38.41, 14.79, 19.04, 19.05, 32.12, 16.88, 19.57, 18.69, 17.59…
+$ Prova    &lt;fct&gt; Ecocardiograma, Ecocardiograma, Ecocardiograma, Ecocardiogram…
+$ Data_eco &lt;dttm&gt; 2014-10-16 12:15:00, 2014-10-16 16:15:00, 2014-10-02 11:30:0…
+$ Pes      &lt;dbl&gt; 88, 157, 61, 63, 61, 49, 57, 48, 67, 53, 67, 72, 66, 49, 60, …</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="visualització-i-depurat-de-dades.html#cb18-1" tabindex="-1"></a><span class="fu">glimpse</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(dfpredensi, <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>))</span></code></pre></div>
+<pre><code>Rows: 6,382
+Columns: 8
+$ Seccio                     &lt;chr&gt; &quot;ATLETISME&quot;, &quot;ATLETISME&quot;, &quot;ATLETISME&quot;, &quot;ATL…
+$ Id                         &lt;fct&gt; 1193801, 105274175, 1452702, 15073064, 1052…
+$ Sexe                       &lt;fct&gt; M, M, M, F, M, F, F, F, M, M, M, M, M, M, M…
+$ Edat                       &lt;dbl&gt; 20.07, 23.52, 17.63, 18.64, 18.64, 29.99, 2…
+$ Prova                      &lt;fct&gt; Densitometria, Densitometria, Densitometria…
+$ Data_densi                 &lt;dttm&gt; 2015-04-24 19:00:00, 2015-07-23 10:00:00, …
+$ BrazoIzqTejido_percentatge &lt;dbl&gt; 14.1, 10.4, 10.7, 21.9, 14.9, 19.9, 27.1, 2…
+$ BrazoIzqRegión_percentatge &lt;dbl&gt; 13.3, 9.8, 10.1, 20.7, 14.1, 18.6, 25.7, 21…</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="outliers.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítol 4 Descriptiva | Preprocesat de dades densitometria i ecocardiograma</title>
+  <meta name="description" content="Capítol 4 Descriptiva | Preprocesat de dades densitometria i ecocardiograma" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítol 4 Descriptiva | Preprocesat de dades densitometria i ecocardiograma" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítol 4 Descriptiva | Preprocesat de dades densitometria i ecocardiograma" />
+  
+  
+  
+
+<meta name="author" content="Júlia Cano" />
+
+
+<meta name="date" content="2024-03-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="missings.html"/>
+<link rel="next" href="visualizació-de-dades-longitudinals.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html"><i class="fa fa-check"></i><b>1</b> Visualització i depurat de dades</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#ecocardiograma"><i class="fa fa-check"></i><b>1.1</b> Ecocardiograma</a></li>
+<li class="chapter" data-level="1.2" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#densitometria"><i class="fa fa-check"></i><b>1.2</b> Densitometria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i><b>2</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="outliers.html"><a href="outliers.html#densitometria-1"><i class="fa fa-check"></i><b>2.1</b> Densitometria</a></li>
+<li class="chapter" data-level="2.2" data-path="outliers.html"><a href="outliers.html#ecocardiograma-1"><i class="fa fa-check"></i><b>2.2</b> Ecocardiograma</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="missings.html"><a href="missings.html"><i class="fa fa-check"></i><b>3</b> Missings</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="missings.html"><a href="missings.html#imputació-multiple"><i class="fa fa-check"></i><b>3.1</b> Imputació multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptiva.html"><a href="descriptiva.html"><i class="fa fa-check"></i><b>4</b> Descriptiva</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptiva.html"><a href="descriptiva.html#visió-general"><i class="fa fa-check"></i><b>4.1</b> Visió general</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptiva.html"><a href="descriptiva.html#descriptiva-de-les-variables-de-densitometriaecocardiogramas-per-sexe-esport-any-i-edat"><i class="fa fa-check"></i><b>4.2</b> Descriptiva de les variables de densitometria/ecocardiogramas per sexe, esport, any i edat</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualizació-de-dades-longitudinals.html"><a href="visualizació-de-dades-longitudinals.html"><i class="fa fa-check"></i><b>5</b> Visualizació de dades longitudinals</a></li>
+<li class="chapter" data-level="6" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><i class="fa fa-check"></i><b>6</b> PCA, co-inercia i anàlisis de correlació canonica</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-components-principalspca"><i class="fa fa-check"></i><b>6.1</b> Anàlisis de Components Principals(PCA)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#representació-gràfica-pca"><i class="fa fa-check"></i><b>6.1.1</b> Representació gràfica PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-correlació-canònica"><i class="fa fa-check"></i><b>6.2</b> Anàlisis de correlació canònica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Preprocesat de dades densitometria i ecocardiograma</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descriptiva" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítol  4</span> Descriptiva<a href="descriptiva.html#descriptiva" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="visió-general" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Visió general<a href="descriptiva.html#visió-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Visualitzem de nou el resum d’estadistiques descriptives univariants un cop tractats els valors atípics i faltants.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="descriptiva.html#cb1-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">descr</span>(dfpredensi,</span>
+<span id="cb1-2"><a href="descriptiva.html#cb1-2" tabindex="-1"></a>  <span class="at">FUN =</span> descr, </span>
+<span id="cb1-3"><a href="descriptiva.html#cb1-3" tabindex="-1"></a>  <span class="at">stats =</span> <span class="st">&quot;common&quot;</span>,</span>
+<span id="cb1-4"><a href="descriptiva.html#cb1-4" tabindex="-1"></a>  <span class="at">transpose =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>Descriptive Statistics  
+dfpredensi  
+N: 5922  
+
+                                      Mean   Std.Dev       Min    Median       Max   N.Valid   Pct.Valid
+-------------------------------- --------- --------- --------- --------- --------- --------- -----------
+                   AndroideCMO_g     60.36     12.49     20.30     59.60    127.00   5922.00      100.00
+                 AndroideGrasa_g    511.78    303.87    117.00    427.00   1818.00   5922.00      100.00
+                 AndroideMagro_g   3508.07    618.88   1762.00   3471.00   6026.00   5922.00      100.00
+           AndroideMasaTotal_kfg      4.09      0.80      2.02      3.99      8.00   5922.00      100.00
+      AndroideRegión_percentatge     12.24      5.78      4.00     10.80     40.60   5922.00      100.00
+                AndroideTejido_g   4026.22    791.51   1986.00   3914.50   7960.00   5922.00      100.00</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="descriptiva.html#cb3-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">descr</span>(dfpreeco,</span>
+<span id="cb3-2"><a href="descriptiva.html#cb3-2" tabindex="-1"></a>  <span class="at">FUN =</span> descr, </span>
+<span id="cb3-3"><a href="descriptiva.html#cb3-3" tabindex="-1"></a>  <span class="at">stats =</span> <span class="st">&quot;common&quot;</span>,</span>
+<span id="cb3-4"><a href="descriptiva.html#cb3-4" tabindex="-1"></a>  <span class="at">transpose =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>Descriptive Statistics  
+dfpreeco  
+N: 6089  
+
+                              Mean   Std.Dev       Min    Median       Max   N.Valid   Pct.Valid
+------------------------ --------- --------- --------- --------- --------- --------- -----------
+                     Any   2018.51      2.52   2014.00   2018.00   2023.00   6089.00      100.00
+            Auricula_esq     32.54      5.25     17.00     33.00     51.00   6089.00      100.00
+          Auricula_esq_i     20.07      3.36      5.19     19.54     36.41   6089.00      100.00
+              Diam_aorta     27.14      4.26     15.00     27.00     43.00   6089.00      100.00
+            Diam_aorta_i     16.72      2.53      7.32     16.27     34.56   6089.00      100.00
+      Diam_ven_esq_diast     48.11      6.10     28.00     48.00     69.00   6089.00      100.00</code></pre>
+<p>I les gràfiques de densitat i boxplots de les variables per densitometries:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="descriptiva.html#cb5-1" tabindex="-1"></a>suffixes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Tejido_percentatge&quot;</span>, <span class="st">&quot;Región_percentatge&quot;</span>, <span class="st">&quot;Tejido_g&quot;</span>, <span class="st">&quot;Grasa_g&quot;</span>, <span class="st">&quot;Magro_g&quot;</span>, <span class="st">&quot;CMO_g&quot;</span>, <span class="st">&quot;kfg&quot;</span>)</span>
+<span id="cb5-2"><a href="descriptiva.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="descriptiva.html#cb5-3" tabindex="-1"></a>densityplots <span class="ot">&lt;-</span> <span class="fu">lapply</span>(suffixes, <span class="cf">function</span>(suffix) {</span>
+<span id="cb5-4"><a href="descriptiva.html#cb5-4" tabindex="-1"></a>  data_long <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(suffix))<span class="sc">%&gt;%</span> <span class="fu">gather</span>()</span>
+<span id="cb5-5"><a href="descriptiva.html#cb5-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> data_long, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="descriptiva.html#cb5-6" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="descriptiva.html#cb5-7" tabindex="-1"></a>    <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb5-8"><a href="descriptiva.html#cb5-8" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">size =</span> <span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="descriptiva.html#cb5-9" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">6</span>))</span>
+<span id="cb5-10"><a href="descriptiva.html#cb5-10" tabindex="-1"></a>})</span>
+<span id="cb5-11"><a href="descriptiva.html#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="descriptiva.html#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="descriptiva.html#cb5-13" tabindex="-1"></a>boxplotecocardio1<span class="ot">&lt;-</span>dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="descriptiva.html#cb5-14" tabindex="-1"></a>  <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span>                     </span>
+<span id="cb5-15"><a href="descriptiva.html#cb5-15" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span>                            </span>
+<span id="cb5-16"><a href="descriptiva.html#cb5-16" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value)) <span class="sc">+</span>                     </span>
+<span id="cb5-17"><a href="descriptiva.html#cb5-17" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span>   </span>
+<span id="cb5-18"><a href="descriptiva.html#cb5-18" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()   <span class="sc">+</span></span>
+<span id="cb5-19"><a href="descriptiva.html#cb5-19" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">40</span>))</span>
+<span id="cb5-20"><a href="descriptiva.html#cb5-20" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="descriptiva.html#cb5-21" tabindex="-1"></a>boxplots <span class="ot">&lt;-</span> <span class="fu">lapply</span>(suffixes, <span class="cf">function</span>(suffix) {</span>
+<span id="cb5-22"><a href="descriptiva.html#cb5-22" tabindex="-1"></a>  df.m <span class="ot">&lt;-</span> <span class="fu">melt</span>(dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(suffix)))</span>
+<span id="cb5-23"><a href="descriptiva.html#cb5-23" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> df.m, <span class="fu">aes</span>(<span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb5-24"><a href="descriptiva.html#cb5-24" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">dir=</span> <span class="st">&quot;h&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-25"><a href="descriptiva.html#cb5-25" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb5-26"><a href="descriptiva.html#cb5-26" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">6</span>), <span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">6</span>))</span>
+<span id="cb5-27"><a href="descriptiva.html#cb5-27" tabindex="-1"></a>})</span>
+<span id="cb5-28"><a href="descriptiva.html#cb5-28" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="descriptiva.html#cb5-29" tabindex="-1"></a>boxplots</span></code></pre></div>
+<pre><code>[[1]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="boxplot Tejido_percentatge" width="576" />
+<p class="caption">
+Figure 4.1: boxplot Tejido_percentatge
+</p>
+</div>
+<pre><code>
+[[2]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-2.png" alt="boxplot Región_percentatge" width="576" />
+<p class="caption">
+Figure 4.2: boxplot Región_percentatge
+</p>
+</div>
+<pre><code>
+[[3]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-3.png" alt="boxplot Tejido_g" width="576" />
+<p class="caption">
+Figure 4.3: boxplot Tejido_g
+</p>
+</div>
+<pre><code>
+[[4]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-4"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-4.png" alt="boxplot Grasa_g" width="576" />
+<p class="caption">
+Figure 4.4: boxplot Grasa_g
+</p>
+</div>
+<pre><code>
+[[5]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-5"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-5.png" alt="boxplot Magro_g" width="576" />
+<p class="caption">
+Figure 4.5: boxplot Magro_g
+</p>
+</div>
+<pre><code>
+[[6]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-6"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-6.png" alt="boxplot CMO_g" width="576" />
+<p class="caption">
+Figure 4.6: boxplot CMO_g
+</p>
+</div>
+<pre><code>
+[[7]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-7"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-7.png" alt="boxplot kfg" width="576" />
+<p class="caption">
+Figure 4.7: boxplot kfg
+</p>
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="descriptiva.html#cb13-1" tabindex="-1"></a>densityplots</span></code></pre></div>
+<pre><code>[[1]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-8"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-8.png" alt="densitat Tejido_percentatge" width="576" />
+<p class="caption">
+Figure 4.8: densitat Tejido_percentatge
+</p>
+</div>
+<pre><code>
+[[2]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-9"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-9.png" alt="densitat Región_percentatge" width="576" />
+<p class="caption">
+Figure 4.9: densitat Región_percentatge
+</p>
+</div>
+<pre><code>
+[[3]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-10"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-10.png" alt="densitat Tejido_g" width="576" />
+<p class="caption">
+Figure 4.10: densitat Tejido_g
+</p>
+</div>
+<pre><code>
+[[4]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-11"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-11.png" alt="densitat Grasa_g" width="576" />
+<p class="caption">
+Figure 4.11: densitat Grasa_g
+</p>
+</div>
+<pre><code>
+[[5]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-12"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-12.png" alt="densitat Magro_g" width="576" />
+<p class="caption">
+Figure 4.12: densitat Magro_g
+</p>
+</div>
+<pre><code>
+[[6]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-13"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-13.png" alt="densitat CMO_g" width="576" />
+<p class="caption">
+Figure 4.13: densitat CMO_g
+</p>
+</div>
+<pre><code>
+[[7]]</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6-14"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-14.png" alt="densitat kfg" width="576" />
+<p class="caption">
+Figure 4.14: densitat kfg
+</p>
+</div>
+<p>I per ecocardiogrames:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="descriptiva.html#cb21-1" tabindex="-1"></a>densityplotecocardio2 <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="descriptiva.html#cb21-2" tabindex="-1"></a>  <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span>                     </span>
+<span id="cb21-3"><a href="descriptiva.html#cb21-3" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span>                            </span>
+<span id="cb21-4"><a href="descriptiva.html#cb21-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value)) <span class="sc">+</span>                     </span>
+<span id="cb21-5"><a href="descriptiva.html#cb21-5" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span>   </span>
+<span id="cb21-6"><a href="descriptiva.html#cb21-6" tabindex="-1"></a>    <span class="fu">geom_density</span>()   <span class="sc">+</span></span>
+<span id="cb21-7"><a href="descriptiva.html#cb21-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">40</span>)) </span>
+<span id="cb21-8"><a href="descriptiva.html#cb21-8" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="descriptiva.html#cb21-9" tabindex="-1"></a>boxplotecocardio2 <span class="ot">&lt;-</span>dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb21-10"><a href="descriptiva.html#cb21-10" tabindex="-1"></a>  <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span>                     </span>
+<span id="cb21-11"><a href="descriptiva.html#cb21-11" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span>                            </span>
+<span id="cb21-12"><a href="descriptiva.html#cb21-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value)) <span class="sc">+</span>                     </span>
+<span id="cb21-13"><a href="descriptiva.html#cb21-13" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span>   </span>
+<span id="cb21-14"><a href="descriptiva.html#cb21-14" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()   <span class="sc">+</span></span>
+<span id="cb21-15"><a href="descriptiva.html#cb21-15" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">40</span>)) </span>
+<span id="cb21-16"><a href="descriptiva.html#cb21-16" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="descriptiva.html#cb21-17" tabindex="-1"></a>densityplotecocardio2</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-7-1.png" alt="density plot ecocardiograma" width="576" />
+<p class="caption">
+Figure 4.15: density plot ecocardiograma
+</p>
+</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="descriptiva.html#cb22-1" tabindex="-1"></a>boxplotecocardio2</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-7-2.png" alt="density plot ecocardiograma" width="576" />
+<p class="caption">
+Figure 4.16: density plot ecocardiograma
+</p>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="descriptiva.html#cb23-1" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">names</span>(dfpreeco <span class="sc">%&gt;%</span> <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>row, <span class="sc">-</span>Any)), <span class="cf">function</span>(var) {</span>
+<span id="cb23-2"><a href="descriptiva.html#cb23-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(dfpreeco, <span class="fu">aes</span>(<span class="at">x =</span> .data[[var]], <span class="at">color =</span> Sexe)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="descriptiva.html#cb23-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="descriptiva.html#cb23-4" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, , <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="descriptiva.html#cb23-5" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">40</span>), </span>
+<span id="cb23-6"><a href="descriptiva.html#cb23-6" tabindex="-1"></a>          <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
+<span id="cb23-7"><a href="descriptiva.html#cb23-7" tabindex="-1"></a>          <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb23-8"><a href="descriptiva.html#cb23-8" tabindex="-1"></a>})</span>
+<span id="cb23-9"><a href="descriptiva.html#cb23-9" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="descriptiva.html#cb23-10" tabindex="-1"></a><span class="fu">plot_grid</span>(<span class="at">plotlist =</span> pp, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">ggtitle =</span> <span class="st">&quot;Density plot Sex&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-7-3.png" alt="density plot ecocardiograma" width="576" />
+<p class="caption">
+Figure 4.17: density plot ecocardiograma
+</p>
+</div>
+<p>Podem notar la diferencia un cop tractats els valors.</p>
+<p>Matrius de gràfics de dispersió:</p>
+<p>Per cada base de dades tenim p variables cada una de les quals que podem representar una per una amb un diagrama de caixes o histograma i dos a dos amb un diagrama de dispersió. Per tant, tindrem p(p-1)/2 diagrames possibles.</p>
+<p>La millor forma de grafiar-los és en forma de matriu, la matriu de gràfics de dispersió, on representarem els histogrames i les relacions bivariants. Ens ajudarà a entendre el tipus de relació que existeix entre pars de variables i identificar punts atípics en la relació bivariant.</p>
+<p>En particular, aquests gràfics són importants per apreciar si existeixen relacions no lineals, en aquest cas la matriu de covariància podria no ser un bon resum de dependència entre les variables.</p>
+<p>Com que tenim moltes varialbes, les agruparem per categories per visualitzar la matriu de dispersió millor per cada grup.</p>
+<p>DUBTE: Haurem de fer transformacions no lineals? (capitol 4.4 llibre analisis de datos multivariantes): No podem asegurar que les nostres variables estiguin relacionades de forma lineal entre elles (poden estar-ho d’altres formes), es en aquests casos que apliquem transformacions a les variables matrius de grafics de dispersio despres de les transformacions no lineals. Fixemnos que per utilitzar més endevant PCA tmb necessitarem que les variables estiguin relacionades de forma lineal.</p>
+<p>Matriu de varianzas i covarianzas: la covarianza es una medida descriptiva de la relació LINEAL entre cada par de variables continuas. Si les nostres variables estan relacionades, pero no linealment, la covarianza no sera prou presisa, llavors hem de fer les transformacions.</p>
+<p>OBS: Les matrius de grafics de dispersio ens ajuden a identificar en quines variables no tenim una relacio lineal.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="descriptiva.html#cb24-1" tabindex="-1"></a>panel.hist <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb24-2"><a href="descriptiva.html#cb24-2" tabindex="-1"></a>  usr <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="fu">on.exit</span>(<span class="fu">par</span>(usr))</span>
+<span id="cb24-3"><a href="descriptiva.html#cb24-3" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">usr =</span> <span class="fu">c</span>(usr[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</span>
+<span id="cb24-4"><a href="descriptiva.html#cb24-4" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb24-5"><a href="descriptiva.html#cb24-5" tabindex="-1"></a>  breaks <span class="ot">&lt;-</span> h<span class="sc">$</span>breaks; nB <span class="ot">&lt;-</span> <span class="fu">length</span>(breaks)</span>
+<span id="cb24-6"><a href="descriptiva.html#cb24-6" tabindex="-1"></a>  y <span class="ot">&lt;-</span> h<span class="sc">$</span>counts; y <span class="ot">&lt;-</span> y<span class="sc">/</span><span class="fu">max</span>(y)</span>
+<span id="cb24-7"><a href="descriptiva.html#cb24-7" tabindex="-1"></a>  <span class="fu">rect</span>(breaks[<span class="sc">-</span>nB], <span class="dv">0</span>, breaks[<span class="sc">-</span><span class="dv">1</span>], y, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">5</span>, ...)}</span>
+<span id="cb24-8"><a href="descriptiva.html#cb24-8" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="descriptiva.html#cb24-9" tabindex="-1"></a><span class="fu">map</span>(suffixes, <span class="sc">~</span> {</span>
+<span id="cb24-10"><a href="descriptiva.html#cb24-10" tabindex="-1"></a>  selected_names <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(.x)) <span class="sc">%&gt;%</span>  <span class="fu">names</span>()</span>
+<span id="cb24-11"><a href="descriptiva.html#cb24-11" tabindex="-1"></a>  half_names <span class="ot">&lt;-</span> <span class="fu">split</span>(selected_names, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">length</span>(selected_names)<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb24-12"><a href="descriptiva.html#cb24-12" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="descriptiva.html#cb24-13" tabindex="-1"></a>  df_suffix1 <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(half_names[[<span class="dv">1</span>]]))</span>
+<span id="cb24-14"><a href="descriptiva.html#cb24-14" tabindex="-1"></a>  df_suffix2 <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(half_names[[<span class="dv">2</span>]]))</span>
+<span id="cb24-15"><a href="descriptiva.html#cb24-15" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="descriptiva.html#cb24-16" tabindex="-1"></a>  <span class="fu">pairs</span>(df_suffix1, <span class="at">diag.panel =</span> panel.hist)</span>
+<span id="cb24-17"><a href="descriptiva.html#cb24-17" tabindex="-1"></a>  <span class="fu">pairs</span>(df_suffix2, <span class="at">diag.panel =</span> panel.hist)</span>
+<span id="cb24-18"><a href="descriptiva.html#cb24-18" tabindex="-1"></a>})</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-4.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-5.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-6.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-7.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-8.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-9.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-10.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-11.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-12.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-13.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-8-14.png" width="672" /></p>
+<pre><code>[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="descriptiva.html#cb26-1" tabindex="-1"></a>n <span class="ot">&lt;-</span><span class="fu">names</span>(dfpreeco <span class="sc">%&gt;%</span> <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>row))</span>
+<span id="cb26-2"><a href="descriptiva.html#cb26-2" tabindex="-1"></a>half_names<span class="ot">&lt;-</span> <span class="fu">split</span>(n, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">length</span>(n)<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb26-3"><a href="descriptiva.html#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="descriptiva.html#cb26-4" tabindex="-1"></a>df_suffix1 <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(half_names[[<span class="dv">1</span>]]))</span>
+<span id="cb26-5"><a href="descriptiva.html#cb26-5" tabindex="-1"></a>df_suffix2 <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">all_of</span>(half_names[[<span class="dv">2</span>]]))</span>
+<span id="cb26-6"><a href="descriptiva.html#cb26-6" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="descriptiva.html#cb26-7" tabindex="-1"></a><span class="fu">pairs</span>(df_suffix1, <span class="at">diag.panel =</span> panel.hist)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-9-1.png" alt="Matriu gràfics de dispersió ecocardiograma gruix" width="672" />
+<p class="caption">
+Figure 4.18: Matriu gràfics de dispersió ecocardiograma gruix
+</p>
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="descriptiva.html#cb27-1" tabindex="-1"></a><span class="fu">pairs</span>(df_suffix2, <span class="at">diag.panel =</span> panel.hist)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-9-2.png" alt="Matriu gràfics de dispersió ecocardiograma diametres" width="672" />
+<p class="caption">
+Figure 4.19: Matriu gràfics de dispersió ecocardiograma diametres
+</p>
+</div>
+</div>
+<div id="descriptiva-de-les-variables-de-densitometriaecocardiogramas-per-sexe-esport-any-i-edat" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Descriptiva de les variables de densitometria/ecocardiogramas per sexe, esport, any i edat<a href="descriptiva.html#descriptiva-de-les-variables-de-densitometriaecocardiogramas-per-sexe-esport-any-i-edat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ara anem a descriure les variables de densitometria per sexe, seccio, any i edad (per tercils).</p>
+<p>Començarem amb les variables mesurades en grams (es faria d’igual forma per kg i %Grassa) per sexe.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="descriptiva.html#cb28-1" tabindex="-1"></a>df_bg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Sexe&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;B&quot;</span>), <span class="st">&quot;Sexe&quot;</span>)</span>
+<span id="cb28-2"><a href="descriptiva.html#cb28-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_bg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="descriptiva.html#cb28-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe)) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="descriptiva.html#cb28-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables braços&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb28-5"><a href="descriptiva.html#cb28-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-10-1.png" alt="Boxplots variables braços-Sexe" width="672" />
+<p class="caption">
+Figure 4.20: Boxplots variables braços-Sexe
+</p>
+</div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="descriptiva.html#cb29-1" tabindex="-1"></a>df_pg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Sexe&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;P&quot;</span>), <span class="st">&quot;Sexe&quot;</span>)</span>
+<span id="cb29-2"><a href="descriptiva.html#cb29-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_pg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="descriptiva.html#cb29-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="descriptiva.html#cb29-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables cames&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb29-5"><a href="descriptiva.html#cb29-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-10-2.png" alt="Boxplots variables cames-Sexe" width="672" />
+<p class="caption">
+Figure 4.21: Boxplots variables cames-Sexe
+</p>
+</div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="descriptiva.html#cb30-1" tabindex="-1"></a>df_tg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Sexe&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;T&quot;</span>), <span class="st">&quot;Sexe&quot;</span>)</span>
+<span id="cb30-2"><a href="descriptiva.html#cb30-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_tg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="descriptiva.html#cb30-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe)) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="descriptiva.html#cb30-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables tronc&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb30-5"><a href="descriptiva.html#cb30-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-10-3.png" alt="Boxplots variables tronc-Sexe" width="672" />
+<p class="caption">
+Figure 4.22: Boxplots variables tronc-Sexe
+</p>
+</div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="descriptiva.html#cb31-1" tabindex="-1"></a>df_bg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;B&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>)</span>
+<span id="cb31-2"><a href="descriptiva.html#cb31-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_bg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="descriptiva.html#cb31-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Tercil_Edat)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="descriptiva.html#cb31-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables braços-Edat&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb31-5"><a href="descriptiva.html#cb31-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-11-1.png" alt="Boxplots variables braços-Edat" width="672" />
+<p class="caption">
+Figure 4.23: Boxplots variables braços-Edat
+</p>
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="descriptiva.html#cb32-1" tabindex="-1"></a>df_pg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;P&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>)</span>
+<span id="cb32-2"><a href="descriptiva.html#cb32-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_pg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="descriptiva.html#cb32-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Tercil_Edat)) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="descriptiva.html#cb32-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables cames-Edat&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb32-5"><a href="descriptiva.html#cb32-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-11-2.png" alt="Boxplots variables cames-Edat" width="672" />
+<p class="caption">
+Figure 4.24: Boxplots variables cames-Edat
+</p>
+</div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="descriptiva.html#cb33-1" tabindex="-1"></a>df_tg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;T&quot;</span>), <span class="st">&quot;Tercil_Edat&quot;</span>)</span>
+<span id="cb33-2"><a href="descriptiva.html#cb33-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_tg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="descriptiva.html#cb33-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Tercil_Edat)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="descriptiva.html#cb33-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables tronc-Edat&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb33-5"><a href="descriptiva.html#cb33-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-11-3.png" alt="Boxplots variables tronc-Edat" width="672" />
+<p class="caption">
+Figure 4.25: Boxplots variables tronc-Edat
+</p>
+</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="descriptiva.html#cb34-1" tabindex="-1"></a>df_bg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Seccio&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;B&quot;</span>), <span class="st">&quot;Seccio&quot;</span>)</span>
+<span id="cb34-2"><a href="descriptiva.html#cb34-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_bg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="descriptiva.html#cb34-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Seccio)) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="descriptiva.html#cb34-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables braços-Secció&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb34-5"><a href="descriptiva.html#cb34-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-12-1.png" alt="Boxplots variables braços-Secció" width="672" />
+<p class="caption">
+Figure 4.26: Boxplots variables braços-Secció
+</p>
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="descriptiva.html#cb35-1" tabindex="-1"></a>df_pg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Seccio&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;P&quot;</span>), <span class="st">&quot;Seccio&quot;</span>)</span>
+<span id="cb35-2"><a href="descriptiva.html#cb35-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_pg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="descriptiva.html#cb35-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Seccio)) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="descriptiva.html#cb35-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables cames-Secció&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb35-5"><a href="descriptiva.html#cb35-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-12-2.png" alt="Boxplots variables cames-Secció" width="672" />
+<p class="caption">
+Figure 4.27: Boxplots variables cames-Secció
+</p>
+</div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="descriptiva.html#cb36-1" tabindex="-1"></a>df_tg <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_g&quot;</span>), <span class="st">&quot;Seccio&quot;</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;T&quot;</span>), <span class="st">&quot;Seccio&quot;</span>)</span>
+<span id="cb36-2"><a href="descriptiva.html#cb36-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(df_tg), <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="descriptiva.html#cb36-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Seccio)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="descriptiva.html#cb36-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables&quot;</span>, <span class="at">y =</span> <span class="st">&quot;grams&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplots variables tronc-Secció&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb36-5"><a href="descriptiva.html#cb36-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">75</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-12-3.png" alt="Boxplots variables tronc-Secció" width="672" />
+<p class="caption">
+Figure 4.28: Boxplots variables tronc-Secció
+</p>
+</div>
+<p>Si volguessim descriure una variable en concret, per exemple teixit dels brasos (g), en funció de l’edat, sexe, secció i any:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="descriptiva.html#cb37-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dfpredensi, <span class="fu">aes</span>(<span class="at">x=</span>Tercil_Edat, <span class="at">y=</span>BrazosTejido_g)) <span class="sc">+</span> </span>
+<span id="cb37-2"><a href="descriptiva.html#cb37-2" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe))<span class="sc">+</span></span>
+<span id="cb37-3"><a href="descriptiva.html#cb37-3" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Edat-Sexe&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Teixit braç esquerre (g)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Edat&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="descriptiva.html#cb37-4" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-13-1.png" alt="Teixit Braç Edat-Sexe" width="672" />
+<p class="caption">
+Figure 4.29: Teixit Braç Edat-Sexe
+</p>
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="descriptiva.html#cb38-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dfpredensi, <span class="fu">aes</span>(<span class="at">x=</span>Seccio, <span class="at">y=</span>BrazosTejido_g)) <span class="sc">+</span> </span>
+<span id="cb38-2"><a href="descriptiva.html#cb38-2" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe))<span class="sc">+</span></span>
+<span id="cb38-3"><a href="descriptiva.html#cb38-3" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Secció-Sexe&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Teixit braç esquerre (g)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seccio&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="descriptiva.html#cb38-4" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))<span class="sc">+</span></span>
+<span id="cb38-5"><a href="descriptiva.html#cb38-5" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">80</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-13-2.png" alt="Teixit Braç Secció-Sexe" width="672" />
+<p class="caption">
+Figure 4.30: Teixit Braç Secció-Sexe
+</p>
+</div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="descriptiva.html#cb39-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dfpredensi, <span class="fu">aes</span>(<span class="at">x=</span>Seccio, <span class="at">y=</span>BrazosTejido_g)) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="descriptiva.html#cb39-2" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Tercil_Edat))<span class="sc">+</span></span>
+<span id="cb39-3"><a href="descriptiva.html#cb39-3" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Secció-Edat&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Teixit braç esquerre (g)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seccio&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="descriptiva.html#cb39-4" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))<span class="sc">+</span></span>
+<span id="cb39-5"><a href="descriptiva.html#cb39-5" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">80</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-13-3.png" alt="Teixit Braç Secció-Edat" width="672" />
+<p class="caption">
+Figure 4.31: Teixit Braç Secció-Edat
+</p>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="descriptiva.html#cb40-1" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dfpredensi, <span class="fu">aes</span>(<span class="at">x =</span> Sexe, <span class="at">y =</span> BrazosTejido_g) )<span class="sc">+</span></span>
+<span id="cb40-2"><a href="descriptiva.html#cb40-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span> Sexe)) <span class="sc">+</span>  </span>
+<span id="cb40-3"><a href="descriptiva.html#cb40-3" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="descriptiva.html#cb40-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Sexe&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="descriptiva.html#cb40-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb40-6"><a href="descriptiva.html#cb40-6" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="descriptiva.html#cb40-7" tabindex="-1"></a>sp <span class="sc">+</span> <span class="fu">facet_grid</span>(Tercil_Edat <span class="sc">~</span> Seccio) <span class="sc">+</span></span>
+<span id="cb40-8"><a href="descriptiva.html#cb40-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">70</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb40-9"><a href="descriptiva.html#cb40-9" tabindex="-1"></a>        <span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb40-10"><a href="descriptiva.html#cb40-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Secció-Edat-Sexe&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Teixit braç esquerre (g)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Sexe&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13-4"></span>
+<img src="_main_files/figure-html/unnamed-chunk-13-4.png" alt="Teixit Braç Sexe-Any" width="672" />
+<p class="caption">
+Figure 4.32: Teixit Braç Sexe-Any
+</p>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="descriptiva.html#cb41-1" tabindex="-1"></a>intervals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">ceiling</span>(<span class="fu">max</span>(dfpredensi<span class="sc">$</span>Edat) <span class="sc">/</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">5</span>, <span class="at">by =</span> <span class="dv">5</span>)</span>
+<span id="cb41-2"><a href="descriptiva.html#cb41-2" tabindex="-1"></a>etiquetes<span class="ot">&lt;-</span> <span class="fu">paste</span>(intervals[<span class="sc">-</span><span class="fu">length</span>(intervals)], <span class="st">&quot;-&quot;</span>, intervals[<span class="sc">-</span><span class="dv">1</span>], <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb41-3"><a href="descriptiva.html#cb41-3" tabindex="-1"></a>dfpredensi<span class="sc">$</span>Edat_Anys <span class="ot">&lt;-</span> <span class="fu">cut</span>(dfpredensi<span class="sc">$</span>Edat, <span class="at">breaks =</span> intervals, <span class="at">labels =</span> etiquetes, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-4"><a href="descriptiva.html#cb41-4" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="descriptiva.html#cb41-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dfpredensi, <span class="fu">aes</span>(<span class="at">x=</span>Sexe, <span class="at">y=</span>BrazosTejido_g)) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="descriptiva.html#cb41-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>Sexe)) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="descriptiva.html#cb41-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Sexe-Anys&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Teixit braç esquerre (g)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Any&quot;</span>) <span class="sc">+</span></span>
+<span id="cb41-8"><a href="descriptiva.html#cb41-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="descriptiva.html#cb41-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">angle =</span> <span class="dv">80</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="descriptiva.html#cb41-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Edat_Anys, <span class="at">nrow =</span> <span class="dv">1</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="missings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualizació-de-dades-longitudinals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

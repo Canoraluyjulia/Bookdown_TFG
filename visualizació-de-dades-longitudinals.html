@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítol 5 Visualizació de dades longitudinals | Preprocesat de dades densitometria i ecocardiograma</title>
+  <meta name="description" content="Capítol 5 Visualizació de dades longitudinals | Preprocesat de dades densitometria i ecocardiograma" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítol 5 Visualizació de dades longitudinals | Preprocesat de dades densitometria i ecocardiograma" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítol 5 Visualizació de dades longitudinals | Preprocesat de dades densitometria i ecocardiograma" />
+  
+  
+  
+
+<meta name="author" content="Júlia Cano" />
+
+
+<meta name="date" content="2024-03-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="descriptiva.html"/>
+<link rel="next" href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html"><i class="fa fa-check"></i><b>1</b> Visualització i depurat de dades</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#ecocardiograma"><i class="fa fa-check"></i><b>1.1</b> Ecocardiograma</a></li>
+<li class="chapter" data-level="1.2" data-path="visualització-i-depurat-de-dades.html"><a href="visualització-i-depurat-de-dades.html#densitometria"><i class="fa fa-check"></i><b>1.2</b> Densitometria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i><b>2</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="outliers.html"><a href="outliers.html#densitometria-1"><i class="fa fa-check"></i><b>2.1</b> Densitometria</a></li>
+<li class="chapter" data-level="2.2" data-path="outliers.html"><a href="outliers.html#ecocardiograma-1"><i class="fa fa-check"></i><b>2.2</b> Ecocardiograma</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="missings.html"><a href="missings.html"><i class="fa fa-check"></i><b>3</b> Missings</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="missings.html"><a href="missings.html#imputació-multiple"><i class="fa fa-check"></i><b>3.1</b> Imputació multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptiva.html"><a href="descriptiva.html"><i class="fa fa-check"></i><b>4</b> Descriptiva</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptiva.html"><a href="descriptiva.html#visió-general"><i class="fa fa-check"></i><b>4.1</b> Visió general</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptiva.html"><a href="descriptiva.html#descriptiva-de-les-variables-de-densitometriaecocardiogramas-per-sexe-esport-any-i-edat"><i class="fa fa-check"></i><b>4.2</b> Descriptiva de les variables de densitometria/ecocardiogramas per sexe, esport, any i edat</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualizació-de-dades-longitudinals.html"><a href="visualizació-de-dades-longitudinals.html"><i class="fa fa-check"></i><b>5</b> Visualizació de dades longitudinals</a></li>
+<li class="chapter" data-level="6" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><i class="fa fa-check"></i><b>6</b> PCA, co-inercia i anàlisis de correlació canonica</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-components-principalspca"><i class="fa fa-check"></i><b>6.1</b> Anàlisis de Components Principals(PCA)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#representació-gràfica-pca"><i class="fa fa-check"></i><b>6.1.1</b> Representació gràfica PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="pca-co-inercia-i-anàlisis-de-correlació-canonica.html"><a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html#anàlisis-de-correlació-canònica"><i class="fa fa-check"></i><b>6.2</b> Anàlisis de correlació canònica</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Preprocesat de dades densitometria i ecocardiograma</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizació-de-dades-longitudinals" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítol  5</span> Visualizació de dades longitudinals<a href="visualizació-de-dades-longitudinals.html#visualizació-de-dades-longitudinals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Podem agafar la referencia la variable temporal Edat dels individus.
+Tenim un gran número d’individus en cada dataframe, pero per fer una representació longitudinal han d’apareixer dos cops diferents al llarg del temps.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualizació-de-dades-longitudinals.html#cb1-1" tabindex="-1"></a>dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="visualizació-de-dades-longitudinals.html#cb1-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="visualizació-de-dades-longitudinals.html#cb1-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="visualizació-de-dades-longitudinals.html#cb1-4" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div>
+<pre><code>[1] 4170</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="visualizació-de-dades-longitudinals.html#cb3-1" tabindex="-1"></a>dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="visualizació-de-dades-longitudinals.html#cb3-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="visualizació-de-dades-longitudinals.html#cb3-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="visualizació-de-dades-longitudinals.html#cb3-4" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="visualizació-de-dades-longitudinals.html#cb3-5" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div>
+<pre><code>[1] 1202</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualizació-de-dades-longitudinals.html#cb5-1" tabindex="-1"></a>dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="visualizació-de-dades-longitudinals.html#cb5-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="visualizació-de-dades-longitudinals.html#cb5-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="visualizació-de-dades-longitudinals.html#cb5-4" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div>
+<pre><code>[1] 1250</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualizació-de-dades-longitudinals.html#cb7-1" tabindex="-1"></a>dfpredensi <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="visualizació-de-dades-longitudinals.html#cb7-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="visualizació-de-dades-longitudinals.html#cb7-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="visualizació-de-dades-longitudinals.html#cb7-4" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="visualizació-de-dades-longitudinals.html#cb7-5" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div>
+<pre><code>[1] 868</code></pre>
+<p>En el dataframe de ecocardiogrames, de 4170 individus, només 1202 s’han fet més d’un cop la prova.
+D’igual manera, per la base de dades de densitometries, de 1250 tenim 868</p>
+<p>Visualització longitudinal agregades de variables de densitometria i ecocardiograma:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="visualizació-de-dades-longitudinals.html#cb9-1" tabindex="-1"></a>dfpreeco9 <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="visualizació-de-dades-longitudinals.html#cb9-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Id) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="visualizació-de-dades-longitudinals.html#cb9-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="visualizació-de-dades-longitudinals.html#cb9-4" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">==</span><span class="dv">9</span>)</span>
+<span id="cb9-5"><a href="visualizació-de-dades-longitudinals.html#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="visualizació-de-dades-longitudinals.html#cb9-6" tabindex="-1"></a>dfpreeco9 <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="visualizació-de-dades-longitudinals.html#cb9-7" tabindex="-1"></a>  <span class="fu">filter</span>(Id <span class="sc">%in%</span> dfpreeco9<span class="sc">$</span>Id)</span>
+<span id="cb9-8"><a href="visualizació-de-dades-longitudinals.html#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="visualizació-de-dades-longitudinals.html#cb9-9" tabindex="-1"></a><span class="fu">ggplot</span>(dfpreeco9, <span class="fu">aes</span>(<span class="at">x =</span> Edat, <span class="at">y =</span> Pes, <span class="at">color=</span> Sexe)) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="visualizació-de-dades-longitudinals.html#cb9-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-11"><a href="visualizació-de-dades-longitudinals.html#cb9-11" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">span =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb9-12"><a href="visualizació-de-dades-longitudinals.html#cb9-12" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Id)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualizació-de-dades-longitudinals.html#cb10-1" tabindex="-1"></a><span class="fu">ggplot</span>(dfpreeco <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Edat<span class="sc">&gt;</span><span class="dv">10</span>, Edat<span class="sc">&lt;</span><span class="dv">30</span>), <span class="fu">aes_string</span>(<span class="at">x =</span> <span class="st">&quot;Edat&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Pes&quot;</span>, <span class="at">group =</span> <span class="st">&quot;Id&quot;</span>, <span class="at">color=</span><span class="st">&quot;Sexe&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="visualizació-de-dades-longitudinals.html#cb10-2" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb10-3"><a href="visualizació-de-dades-longitudinals.html#cb10-3" tabindex="-1"></a>     <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">0.05</span>, <span class="at">alpha =</span><span class="fl">0.6</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
+<span id="cb10-4"><a href="visualizació-de-dades-longitudinals.html#cb10-4" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sexe)<span class="sc">+</span></span>
+<span id="cb10-5"><a href="visualizació-de-dades-longitudinals.html#cb10-5" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-2.png" width="672" />
+PROBLEMA:
+4 individus només amb 9 proves, la majoria curtes i tallades
+De fet 2 proves és un número molt baix, per representar-ho millor gràficament utilitzarem els individus que se l’haguin fet minim 5 cops les proves.</p>
+<p>Utilitzarem spaghetti plot, ja que tenim forces indivius així podrem visualitzar la trajectoria de tots ells en una única gràfia. Dividirem la gràfica entre homes i dones, entre edats i entre secció. Afegirem el promig.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualizació-de-dades-longitudinals.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb11-2"><a href="visualizació-de-dades-longitudinals.html#cb11-2" tabindex="-1"></a>diam_names <span class="ot">&lt;-</span> dfpreeco <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Gruix&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="fu">names</span>()</span>
+<span id="cb11-3"><a href="visualizació-de-dades-longitudinals.html#cb11-3" tabindex="-1"></a>kfg_names <span class="ot">&lt;-</span> dfpredensi <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;kfg&quot;</span>)) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;T&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="fu">names</span>()</span>
+<span id="cb11-4"><a href="visualizació-de-dades-longitudinals.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="visualizació-de-dades-longitudinals.html#cb11-5" tabindex="-1"></a>longplot <span class="ot">&lt;-</span> <span class="cf">function</span>(var, df) {</span>
+<span id="cb11-6"><a href="visualizació-de-dades-longitudinals.html#cb11-6" tabindex="-1"></a>  df<span class="sc">$</span>EdatAnys <span class="ot">&lt;-</span> <span class="fu">round</span>(df<span class="sc">$</span>Edat)</span>
+<span id="cb11-7"><a href="visualizació-de-dades-longitudinals.html#cb11-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(df<span class="sc">$</span>Edat<span class="sc">&lt;</span><span class="dv">60</span>), <span class="fu">aes_string</span>(<span class="at">x =</span> <span class="st">&quot;EdatAnys&quot;</span>, <span class="at">y =</span> var, <span class="at">group =</span> <span class="st">&quot;Id&quot;</span>, <span class="at">color=</span><span class="st">&quot;Sexe&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="visualizació-de-dades-longitudinals.html#cb11-8" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span><span class="fl">0.5</span>, <span class="at">col=</span><span class="st">&quot;gray&quot;</span> )<span class="sc">+</span></span>
+<span id="cb11-9"><a href="visualizació-de-dades-longitudinals.html#cb11-9" tabindex="-1"></a>     <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">0.05</span>, <span class="at">alpha =</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb11-10"><a href="visualizació-de-dades-longitudinals.html#cb11-10" tabindex="-1"></a>     <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="at">fun =</span> mean, <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb11-11"><a href="visualizació-de-dades-longitudinals.html#cb11-11" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sexe)<span class="sc">+</span></span>
+<span id="cb11-12"><a href="visualizació-de-dades-longitudinals.html#cb11-12" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-13"><a href="visualizació-de-dades-longitudinals.html#cb11-13" tabindex="-1"></a>}</span>
+<span id="cb11-14"><a href="visualizació-de-dades-longitudinals.html#cb11-14" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="visualizació-de-dades-longitudinals.html#cb11-15" tabindex="-1"></a>plotdiamlong <span class="ot">&lt;-</span> <span class="fu">lapply</span>(diam_names, <span class="cf">function</span>(var) {<span class="fu">longplot</span>(var, <span class="at">df =</span> dfpreeco)})</span>
+<span id="cb11-16"><a href="visualizació-de-dades-longitudinals.html#cb11-16" tabindex="-1"></a>plotkfglong <span class="ot">&lt;-</span> <span class="fu">lapply</span>(kfg_names, <span class="cf">function</span>(var) {<span class="fu">longplot</span>(var, <span class="at">df =</span> dfpredensi)})</span>
+<span id="cb11-17"><a href="visualizació-de-dades-longitudinals.html#cb11-17" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="visualizació-de-dades-longitudinals.html#cb11-18" tabindex="-1"></a><span class="fu">wrap_plots</span>(plotdiamlong, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-7-1.png" alt="Visualització longitudinal agregada diametres ecocardiograma" width="672" />
+<p class="caption">
+Figure 5.1: Visualització longitudinal agregada diametres ecocardiograma
+</p>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="visualizació-de-dades-longitudinals.html#cb12-1" tabindex="-1"></a><span class="fu">wrap_plots</span>(plotkfglong, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7-2"></span>
+<img src="_main_files/figure-html/unnamed-chunk-7-2.png" alt="Visualització longitudinal agregada diametres ecocardiograma" width="672" />
+<p class="caption">
+Figure 5.2: Visualització longitudinal agregada diametres ecocardiograma
+</p>
+</div>
+<p>DUBTE, Aquest document ho explica molt bé:
+<a href="https://bookdown.org/cjrinconr/adl2019/ADL2019.pdf" class="uri">https://bookdown.org/cjrinconr/adl2019/ADL2019.pdf</a>
+Entre los retos que presenta este tipo de análisis, se encuentran:
+1. Requieren de métodos que consideren la correlación de las observaciones, siendo estos generalmente
+más complejos y computacionalmente más demandantes.
+2. Riesgo de presentar datos faltantes ya sea porque no se obtuvieron todas las mediciones programadas
+en un sujeto, o por abandonos o retiros del estudio antes de finalizar el seguimiento programado.
+3. Debido a la necesidad de recolección de información en distintos momentos, no solo del desenlace sino
+en ocasiones también de los factores de interés, se requiere de diseños de investigación que generan un
+mayor costo y complejidad operativa.
+4. Se debe considerar, en el caso de estudios experimentales donde se aplican varias intervenciones al
+mismo sujeto, el orden en que estas son aplicadas. Lo anterior ya que de esto puede depender el
+resultado de la relación que se está evaluando.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descriptiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pca-co-inercia-i-anàlisis-de-correlació-canonica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
